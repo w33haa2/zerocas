@@ -12,7 +12,6 @@ class users extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create();
         
         $data = [];
         
@@ -22,7 +21,7 @@ class users extends Seeder
                 'email' => 'test@example.com',
                 'password' => bcrypt('123456'),
                 'role'     => 10,
-                'bio'      => $faker->realText(),
+                'bio'      => 'test user',
             ]);
         }
         
