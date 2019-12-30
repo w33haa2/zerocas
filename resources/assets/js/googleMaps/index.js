@@ -6,7 +6,7 @@ import NoDataToDisplay from 'highcharts-no-data-to-display';
 export default (function () {
     if ($('#google-map').length > 0) {
         loadGoogleMapsAPI({
-            key: 'AIzaSyDW8td30_gj6sGXjiMU0ALeMu1SDEwUnEA',
+            key: 'AIzaSyA5qzwELEYkCIzAlul9HExe5XIecmjI4u8',
         }).then(() => {
             const latitude = 7.280318;
             const longitude = 125.258767;
@@ -310,11 +310,7 @@ export default (function () {
             map.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv2);
             map.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv3);
             $(document).ready(function () {
-
                 setInterval(setrefresh, 300000);
-
-
-
                 $("#watahfol").on("click", function () {
                     if ($("#container2").hasClass("show"))
                         $("#container1").addClass("show");
@@ -330,7 +326,7 @@ export default (function () {
                     url: "/coord",
                     dataType: 'json',
                     success: function (data1) {
-
+                        console.log(data1)
                         var x = 0;
                         var infowindow = new google.maps.InfoWindow({
                             content: ''
@@ -853,7 +849,7 @@ export default (function () {
                         }
                     },
                     error: function (data, textStatus, errorThrown, error) {
-                        alert(error);
+                        // alert(error);
                         console.log('Error Message: ' + textStatus);
                         console.log('HTTP Error: ' + errorThrown);
                     }
