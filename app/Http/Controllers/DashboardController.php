@@ -31,7 +31,7 @@ class DashboardController extends Controller
                 return true;
             }
         });
-         return json_encode($coords);
+         echo json_encode($coords);
     }
 
     public function findAPI(Request $request)
