@@ -27,7 +27,7 @@ Route::group(['middleware'], function()
         event(new App\Events\heavyrain('testni'));
         return "Event has been sent!";
     });
-     Route::get('/coord', 'DashboardController@test')->name('coord');
+     Route::get('/coord', 'DashboardController@getCoordinates')->name('coord');
      Route::get('/getAPI', 'DashboardController@findAPI')->name('getAPI');
      Route::get('/refresh_rainlog', 'rainlogController@refresh')->name('refresh_rainlog');
      Route::get('/refresh_waterlog', 'waterlevellogscontroller@refresh')->name('refresh_waterlog');

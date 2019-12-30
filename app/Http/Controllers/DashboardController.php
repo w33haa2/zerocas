@@ -13,7 +13,7 @@ class DashboardController extends Controller
 
 
 
-    function test(){
+    function getCoordinates(){
 
          $client = new \GuzzleHttp\Client();
 
@@ -25,9 +25,13 @@ class DashboardController extends Controller
         ]);
          //$request->setHeader('Authorization', "auth-code");
        // $response = $request->getBody()->getContents();
-           $response = json_decode($request->getBody(), true);
-        ///dd($response);
-         echo json_encode($response);
+       $response = json_decode($request->getBody(), true);
+        $coords = array_filter($response, function($obj){
+            if ($obj["region"] == "11") {
+                return true;
+            }
+        });
+         return json_encode($coords);
     }
 
     public function findAPI(Request $request)
@@ -43,13 +47,11 @@ class DashboardController extends Controller
                    'dostElev3n1116'
               ]
          ]);
-          //$request->setHeader('Authorization', "auth-code");
+        //$request->setHeader('Authorization', "auth-code");
         // $response = $request->getBody()->getContents();
-            $response = json_decode($request->getBody(), true);
-         ///dd($response);
+        $response = json_decode($request->getBody(), true);
+        echo json_encode($response);
 
-          echo json_encode($response);
-          
     }
 
 }
