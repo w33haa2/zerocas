@@ -17,7 +17,7 @@ class DashboardController extends Controller
 
          $client = new \GuzzleHttp\Client();
 
-        $request = $client->get('http://weather.asti.dost.gov.ph/api/station', [
+        $request = $client->get('http://philsensors.asti.dost.gov.ph/api/station', [
              'auth' => [
                   'dostregion11',
                   'dostElev3n1116'
@@ -40,7 +40,7 @@ class DashboardController extends Controller
           $dev_id = $request->id;;
           $client = new \GuzzleHttp\Client();
           $ex1 = $dev_id;
-          $ex = "http://weather.asti.dost.gov.ph/api/data/".$ex1;
+          $ex = "http://philsensors.asti.dost.gov.ph/api/data/".$ex1;
          $request = $client->get($ex , [
               'auth' => [
                    'dostregion11',
