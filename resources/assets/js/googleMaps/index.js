@@ -6,7 +6,7 @@ import NoDataToDisplay from 'highcharts-no-data-to-display';
 export default (function () {
     if ($('#google-map').length > 0) {
         loadGoogleMapsAPI({
-            key: 'AIzaSyDWca2zPhYo4HtL2lyx0wZLXY6wryzv9EI',
+            key: 'AIzaSyA6GAFJCD33_cER5b5QyZ-mcumxpU4cm9A',
         }).then(() => {
             const latitude = 7.280318;
             const longitude = 125.258767;
