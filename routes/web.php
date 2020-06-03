@@ -29,6 +29,7 @@ Route::group(['middleware'], function()
     });
      Route::get('/coord', 'DashboardController@getCoordinates')->name('coord');
      Route::get('/getAPI', 'DashboardController@findAPI')->name('getAPI');
+     Route::get('/get_latest', 'DashboardController@getLatest');
      Route::get('/refresh_rainlog', 'rainlogController@refresh')->name('refresh_rainlog');
      Route::get('/refresh_waterlog', 'waterlevellogscontroller@refresh')->name('refresh_waterlog');
      Route::post('/addlog', 'rainlogController@store')->name('addlog');

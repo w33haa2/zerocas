@@ -340,56 +340,56 @@ export default (function () {
                         var q = [];
                         var len = 0;
                         for (i = 0, len = data_length; i < len; i++) {
-                            if (data1[i].sensor_name != "DEWS Alerting") {
-                                if (data1[i].sensor_name == "Waterlevel") {
-                                    setID.push(data1[i].dev_id);
-                                    var janreypogi = data1[i].dev_id;
-                                    var sensor = data1[i].sensor_name;
+                            if (data1[i].type_name != "DEWS Alerting") {
+                                if (data1[i].type_name == "Waterlevel") {
+                                    setID.push(data1[i].station_id);
+                                    var janreypogi = data1[i].station_id;
+                                    var sensor = data1[i].type_name;
                                     var loc = data1[i].location;
                                     var marker = new google.maps.Marker({
                                         map,
                                         position: new google.maps.LatLng(data1[i].latitude, data1[i].longitude),
                                         icon: 'assets/images/finalwaterlevel.png',
                                         visible: true,
-                                        sensID: data1[i].dev_id,
-                                        senstype: data1[i].sensor_name,
+                                        sensID: data1[i].station_id,
+                                        senstype: data1[i].type_name,
                                         markerThreshold: 0,
                                     });
-                                    bindInfoWindow(marker, loc, map, sensor, janreypogi, infowindow, "<br>" + "<p>" + data1[i].location + ", " + data1[i].province + "</p>" + "<p>" + "Installed Sensors: " + data1[i].sensor_name + "</p>" + "<p>" + "Date Installed: " + data1[i].date_installed + "</p>");
+                                    bindInfoWindow(marker, loc, map, sensor, janreypogi, infowindow, "<br>" + "<p>" + data1[i].location + ", " + data1[i].province + "</p>" + "<p>" + "Installed Sensors: " + data1[i].type_name + "</p>" + "<p>" + "Date Installed: " + data1[i].date_installed + "</p>");
                                     markers.push(marker);
                                 }
-                                if (data1[i].sensor_name == "Waterlevel & Rain 2") {
-                                    setID.push(data1[i].dev_id);
-                                    var janreypogi = data1[i].dev_id;
-                                    var sensor = data1[i].sensor_name;
+                                if (data1[i].type_name == "Waterlevel & Rain 2") {
+                                    setID.push(data1[i].station_id);
+                                    var janreypogi = data1[i].station_id;
+                                    var sensor = data1[i].type_name;
                                     var loc = data1[i].location;
                                     var marker = new google.maps.Marker({
                                         map,
                                         position: new google.maps.LatLng(data1[i].latitude, data1[i].longitude),
                                         icon: 'assets/images/tandemnorain.png',
                                         visible: true,
-                                        sensID: data1[i].dev_id,
-                                        senstype: data1[i].sensor_name,
+                                        sensID: data1[i].station_id,
+                                        senstype: data1[i].type_name,
 
                                     });
-                                    bindInfoWindow(marker, loc, map, sensor, janreypogi, infowindow, "<br>" + "<p>" + data1[i].location + ", " + data1[i].province + "</p>" + "<p>" + "Installed Sensors: " + data1[i].sensor_name + "</p>" + "<p>" + "Date Installed: " + data1[i].date_installed + "</p>");
+                                    bindInfoWindow(marker, loc, map, sensor, janreypogi, infowindow, "<br>" + "<p>" + data1[i].location + ", " + data1[i].province + "</p>" + "<p>" + "Installed Sensors: " + data1[i].type_name + "</p>" + "<p>" + "Date Installed: " + data1[i].date_installed + "</p>");
                                     markers.push(marker);
                                 }
-                                if (data1[i].sensor_name == "Rain2") {
-                                    setID.push(data1[i].dev_id);
-                                    var janreypogi = data1[i].dev_id;
-                                    var sensor = data1[i].sensor_name;
+                                if (data1[i].type_name == "Rain2") {
+                                    setID.push(data1[i].station_id);
+                                    var janreypogi = data1[i].station_id;
+                                    var sensor = data1[i].type_name;
                                     var loc = data1[i].location;
                                     var marker = new google.maps.Marker({
                                         map,
                                         position: new google.maps.LatLng(data1[i].latitude, data1[i].longitude),
                                         icon: 'assets/images/finaliconnorain.png',
                                         visible: true,
-                                        sensID: data1[i].dev_id,
-                                        senstype: data1[i].sensor_name,
+                                        sensID: data1[i].station_id,
+                                        senstype: data1[i].type_name,
 
                                     });
-                                    bindInfoWindow(marker, loc, map, sensor, janreypogi, infowindow, "<br>" + "<p>" + data1[i].location + ", " + data1[i].province + "</p>" + "<p>" + "Installed Sensors: " + data1[i].sensor_name + "</p>" + "<p>" + "Date Installed: " + data1[i].date_installed + "</p>");
+                                    bindInfoWindow(marker, loc, map, sensor, janreypogi, infowindow, "<br>" + "<p>" + data1[i].location + ", " + data1[i].province + "</p>" + "<p>" + "Installed Sensors: " + data1[i].type_name + "</p>" + "<p>" + "Date Installed: " + data1[i].date_installed + "</p>");
                                     markers.push(marker);
                                 }
 
@@ -902,7 +902,7 @@ export default (function () {
                                     });
                                 }
                                 for (var k = 0; k < markers.length; k++) {
-                                    if (datani.dev_id == "Waterlevel") {
+                                    if (datani.station_id == "Waterlevel") {
                                         if (i > markers[k].markerThreshold) {
                                             markers[k].setIcon('assets/images/finalwaterleveldanger.png');
                                             var temp = markers[k].markerThreshold * 0.20;
@@ -930,8 +930,8 @@ export default (function () {
                                             }
                                         }
                                     }
-                                    if (datani.dev_id != "Waterlevel") {
-                                        if (markers[k].sensID == datani.dev_id) {
+                                    if (datani.station_id != "Waterlevel") {
+                                        if (markers[k].sensID == datani.station_id) {
                                             if (i == 0) {
                                                 if (datani.type_id == "Rain2") {
                                                     markers[k].setIcon('assets/images/finaliconnorain.png');
@@ -1071,12 +1071,12 @@ export default (function () {
                             } else {
                                 for (var k = 0; k < markers.length; k++) {
                                     if (datani.type_id == "Rain2") {
-                                        if (markers[k].sensID == datani.dev_id) {
+                                        if (markers[k].sensID == datani.station_id) {
                                             markers[k].setIcon('assets/images/finaliconnorain.png');
                                         }
                                     }
                                     if (datani.type_id == "Waterlevel & Rain 2") {
-                                        if (markers[k].sensID == datani.dev_id) {
+                                        if (markers[k].sensID == datani.station_id) {
                                             markers[k].setIcon('assets/images/tandemnorain.png');
                                         }
                                     }
@@ -1094,7 +1094,6 @@ export default (function () {
                 var currentrain = 0;
                 if (counter == 0) {
                     for (x = 0; x < setID.length; x++) {
-
                         $.ajax({
                             method: 'get',
                             url: "/getAPI?id=" + setID[x],
@@ -1136,12 +1135,12 @@ export default (function () {
                                         });
                                     }
                                     for (var k = 0; k < markers.length; k++) {
-                                        if (datani.dev_id == "Waterlevel") {
+                                        if (datani.station_id == "Waterlevel") {
                                             markers[k].markerThreshold = i;
 
                                         }
                                         if (datani.dev_id != "Waterlevel") {
-                                            if (markers[k].sensID == datani.dev_id) {
+                                            if (markers[k].sensID == datani.station_id) {
                                                 if (i == 0) {
                                                     if (datani.type_id == "Rain2") {
                                                         markers[k].setIcon('assets/images/finaliconnorain.png');
@@ -1279,12 +1278,12 @@ export default (function () {
                                 } else {
                                     for (var k = 0; k < markers.length; k++) {
                                         if (datani.type_id == "Rain2") {
-                                            if (markers[k].sensID == datani.dev_id) {
+                                            if (markers[k].sensID == datani.station_id) {
                                                 markers[k].setIcon('assets/images/finaliconnorain.png');
                                             }
                                         }
                                         if (datani.type_id == "Waterlevel & Rain 2") {
-                                            if (markers[k].sensID == datani.dev_id) {
+                                            if (markers[k].sensID == datani.station_id) {
                                                 markers[k].setIcon('assets/images/tandemnorain.png');
                                             }
                                         }

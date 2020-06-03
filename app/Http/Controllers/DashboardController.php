@@ -37,10 +37,29 @@ class DashboardController extends Controller
     public function findAPI(Request $request)
     {
 
-          $dev_id = $request->id;;
+          $dev_id = $request->id;
           $client = new \GuzzleHttp\Client();
           $ex1 = $dev_id;
           $ex = "http://philsensors.asti.dost.gov.ph/api/data/".$ex1;
+         $request = $client->get($ex , [
+              'auth' => [
+                   'dostregion11',
+                   'dostElev3n1116'
+              ]
+         ]);
+        //$request->setHeader('Authorization', "auth-code");
+        // $response = $request->getBody()->getContents();
+        $response = json_decode($request->getBody(), true);
+        echo json_encode($response);
+
+    }
+    public function getLatest(Request $request)
+    {
+
+          $dev_id = $request->id;
+          $client = new \GuzzleHttp\Client();
+          $ex1 = $dev_id;
+          $ex = "http://philsensors.asti.dost.gov.ph/api/data/latest";
          $request = $client->get($ex , [
               'auth' => [
                    'dostregion11',
